@@ -1,73 +1,94 @@
-import React from 'react';
-import {StyleSheet, View, BackHandler, StatusBar} from 'react-native';
-import {WebView} from 'react-native-webview';
-import Spinner from 'react-native-loading-spinner-overlay';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
 
-class App extends React.Component {
-  webviewRef = React.createRef(null);
+import React, {Component} from 'react';
+import {
+  Platform,
+  StyleSheet,
+  View,
+  StatusBar,
+  Linking,
+  BackHandler,
+} from 'react-native';
+import InAppBrowser from 'react-native-inappbrowser-reborn';
 
+export default class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      isLoading: true,
-      canGoBack: false,
-      canGoForward: false,
-      currentUrl: '',
+      url: 'https://pikfresh.online',
+      statusBarStyle: 'dark-content',
     };
-    this.hideSpinner = this.hideSpinner.bind(this);
+    this.openLink();
+  }
+  
+  sleep(timeout) {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
   }
 
-  componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.backButtonHandler);
-  }
-
-  componentWillUnmount() {
-    BackHandler.removeEventListener(
-      'hardwareBackPress',
-      this.backButtonHandler,
-    );
-  }
-
-  backButtonHandler = () => {
-    if (this.webviewRef.current && this.state.canGoBack) {
-      this.webviewRef.current.goBack();
-      return true;
+  async openLink() {
+    const {url, statusBarStyle} = this.state;
+    try {
+      if (await InAppBrowser.isAvailable()) {
+        // A delay to change the StatusBar when the browser is opened
+        const animated = true;
+        const delay = animated && Platform.OS === 'ios' ? 400 : 0;
+        setTimeout(() => StatusBar.setBarStyle('light-content'), delay);
+        const result = await InAppBrowser.open(url, {
+          // iOS Properties
+          dismissButtonStyle: 'cancel',
+          preferredBarTintColor: '#453AA4',
+          preferredControlTintColor: 'white',
+          readerMode: false,
+          animated,
+          modalPresentationStyle: 'fullScreen',
+          modalTransitionStyle: 'partialCurl',
+          modalEnabled: true,
+          enableBarCollapsing: false,
+          // Android Properties
+          showTitle: true,
+          toolbarColor: '#6200EE',
+          secondaryToolbarColor: 'black',
+          enableUrlBarHiding: true,
+          enableDefaultShare: false,
+          forceCloseOnRedirection: false,
+          // Specify full animation resource identifier(package:anim/name)
+          // or only resource name(in case of animation bundled with app).
+          animations: {
+            startEnter: 'slide_in_right',
+            startExit: 'slide_out_left',
+            endEnter: 'slide_in_left',
+            endExit: 'slide_out_right',
+          },
+          headers: {
+            'my-custom-header': 'my custom header value',
+          },
+        });
+        // A delay to show an alert when the browser is closed
+        await this.sleep(100);
+        BackHandler.exitApp();
+      } else {
+        Linking.openURL(url);
+      }
+    } catch (error) {
+      this.openLink();
+    } finally {
+      // Restore the previous StatusBar of the App
+      StatusBar.setBarStyle(statusBarStyle);
     }
-  };
-
-  onNavigationStateChange(navState) {
-    this.setState({
-      canGoBack: navState.canGoBack,
-      setCanGoForward: navState.canGoForward,
-      setCurrentUrl: navState.url,
-    });
   }
 
-  hideSpinner() {
-    this.setState({isLoading: false});
-  }
   render() {
+    const {statusBarStyle} = this.state;
     return (
-      <View style={[styles.container, styles.horizontal]}>
-        <StatusBar
-          backgroundColor="#680085"
-          barStyle="light-content"
-        />
-        <View style={[styles.loading]}>
-          <Spinner
-            visible={this.state.isLoading}
-            textContent={'Loading...'}
-            color="#680085"
-            animation="fade"
-            textStyle={styles.spinnerTextStyle}
-          />
-        </View>
-        <WebView
-          ref={this.webviewRef}
-          onLoad={this.hideSpinner}
-          source={{uri: 'http://w6n.a08.myftpupload.com/'}}
-          onNavigationStateChange={this.onNavigationStateChange.bind(this)}
-        />
+      <View style={styles.container}>
+        <StatusBar barStyle={statusBarStyle} />
       </View>
     );
   }
@@ -77,23 +98,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-  },
-  spinnerTextStyle: {
-    color: '#680085',
-  },
-  loading: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    backgroundColor: '#F5FCFF',
+    padding: 30,
   },
 });
-
-export default App;
