@@ -1,1 +1,1 @@
-{"mName":"debug","mStoreFile":"/home/turbo/vinod/react-native/pikfresh/android/app/debug.keystore","mStorePassword":"android","mKeyAlias":"androiddebugkey","mKeyPassword":"android","mStoreType":"jks","mV1SigningEnabled":true,"mV2SigningEnabled":true}
+{"mName":"release","mStoreFile":"/home/turbo/vinod/react-native/pikfresh/android/app/pikfresh.keystore","mStorePassword":"pikfresh@123","mKeyAlias":"pikfresh","mKeyPassword":"pikfresh@123","mStoreType":"jks","mV1SigningEnabled":true,"mV2SigningEnabled":true}

@@ -656,16 +656,16 @@
         "source": "/home/turbo/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-ldrtl-mdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/xml_file_provider_paths.xml.flat",
-        "source": "/home/turbo/vinod/react-native/pikfresh/node_modules/react-native-webview/android/build/intermediates/packaged_res/debug/xml/file_provider_paths.xml"
-    },
-    {
         "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/drawable_tooltip_frame_light.xml.flat",
         "source": "/home/turbo/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable/tooltip_frame_light.xml"
     },
     {
         "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/anim_catalyst_fade_out.xml.flat",
         "source": "/home/turbo/.gradle/caches/transforms-2/files-2.1/0b7c6129734578e3a2dd8f103c31a5f0/jetified-react-native-0.63.2/res/anim/catalyst_fade_out.xml"
+    },
+    {
+        "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/layout_browser_actions_context_menu_row.xml.flat",
+        "source": "/home/turbo/.gradle/caches/transforms-2/files-2.1/dfb9c546ae033b457932fd9f692a12c4/browser-1.3.0-alpha05/res/layout/browser_actions_context_menu_row.xml"
     },
     {
         "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -678,6 +678,10 @@
     {
         "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/drawable-v21_abc_action_bar_item_background_material.xml.flat",
         "source": "/home/turbo/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/xml_image_share_filepaths.xml.flat",
+        "source": "/home/turbo/.gradle/caches/transforms-2/files-2.1/dfb9c546ae033b457932fd9f692a12c4/browser-1.3.0-alpha05/res/xml/image_share_filepaths.xml"
     },
     {
         "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
@@ -1386,6 +1390,10 @@
     {
         "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "/home/turbo/.gradle/caches/transforms-2/files-2.1/1cb9b9ea592aa2ea85233be252327dcf/appcompat-1.1.0/res/drawable-ldrtl-xxxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/layout_browser_actions_context_menu_page.xml.flat",
+        "source": "/home/turbo/.gradle/caches/transforms-2/files-2.1/dfb9c546ae033b457932fd9f692a12c4/browser-1.3.0-alpha05/res/layout/browser_actions_context_menu_page.xml"
     },
     {
         "merged": "/home/turbo/vinod/react-native/pikfresh/android/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",

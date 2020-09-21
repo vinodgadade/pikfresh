@@ -11,8 +11,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-// react-native-webview
-import com.reactnativecommunity.webview.RNCWebViewPackage;
+// react-native-inappbrowser-reborn
+import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
 
 public class PackageList {
   private Application application;
@@ -58,7 +58,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
-      new RNCWebViewPackage()
+      new RNInAppBrowserPackage()
     ));
   }
 }
